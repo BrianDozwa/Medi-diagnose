@@ -1,0 +1,45 @@
+import { defineSchema, defineTable } from "convex/server";
+import { v } from "convex/values";
+
+export default defineSchema({
+  diagnoses: defineTable({
+    patientId: v.string(),
+    imageUrl: v.string(),
+    diagnosis: v.string(),
+    confidence: v.number(),
+    severity: v.string(),
+    findings: v.array(v.string()),
+    recommendations: v.array(v.string()),
+    createdAt: v.number(),
+  }),
+  patients: defineTable({
+    firstName: v.string(),
+    lastName: v.string(),
+    dateOfBirth: v.string(),
+    gender: v.string(),
+    phone: v.string(),
+    email: v.string(),
+    address: v.string(),
+    emergencyContact: v.string(),
+    emergencyPhone: v.string(),
+    bloodType: v.string(),
+    allergies: v.string(),
+    medications: v.string(),
+    medicalHistory: v.string(),
+    insurance: v.string(),
+    insuranceId: v.string(),
+    createdAt: v.number(),
+  }),
+  users: defineTable({
+    firstName: v.string(),
+    lastName: v.string(),
+    email: v.string(),
+    phone: v.string(),
+    role: v.string(),
+    department: v.string(),
+    licenseNumber: v.string(),
+    specialization: v.string(),
+    permissions: v.array(v.string()),
+    createdAt: v.number(),
+  }),
+});
